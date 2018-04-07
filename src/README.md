@@ -1,0 +1,1 @@
+- `courses` app provides a service to tie courses to students
