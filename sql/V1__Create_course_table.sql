@@ -1,7 +1,7 @@
-create database coursesdb;
-grant all privileges on courses.* to 'dev'@'localhost';
-use courses;
-create table courses (
+CREATE DATABASE coursesdb;
+GRANT ALL PRIVILEGES ON coursesdb.* TO 'dev'@'localhost';
+USE coursesdb;
+CREATE TABLE courses (
   CRSE_ID int,
   ACAD_GROUP varchar(4),
   SUBJECT varchar(3),

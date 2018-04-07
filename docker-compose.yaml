@@ -3,12 +3,16 @@ services:
   db:
     image: mysql
     container_name: db
-    volumes:
-      - data:/var/lib/mysql
-      - /Users/aleccunningham/Projects/student-advisor/sql/:docker-entrypoint-initdb.d/:ro
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=dev
+      - MYSQL_PASSWORD=voyager
+      - MYSQL_DATABASE=couresdb
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
-    expose:
-      - "3306"
+    volumes:
+      - data:/var/lib/mysql
+      - sql/*.sql:docker-entrypointdb.d/
 volumes:
-    data:
+  data:
