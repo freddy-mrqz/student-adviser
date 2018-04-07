@@ -1,15 +1,14 @@
-version: '3.3'
-
+version: '3'
 services:
-  mysql:
+  db:
     image: mysql
-    container_name: "db"
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    environment:
-      - MYSQL_USER=dev
-      - MYSQL_PASSWORD=voyager
-      - MYSQL_ROOT_PASSWORD=root
+    container_name: db
     volumes:
-      - ./sql:/var/lib/mysql
+      - data:/var/lib/mysql
+      - /Users/aleccunningham/Projects/student-advisor/sql/:docker-entrypoint-initdb.d/:ro
     ports:
-      - "3306:3306"
+      - 3306:3306
+    expose:
+      - "3306"
+volumes:
+    data:

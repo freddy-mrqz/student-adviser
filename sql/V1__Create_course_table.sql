@@ -1,4 +1,7 @@
-create table COURSE (
+create database coursesdb;
+grant all privileges on courses.* to 'dev'@'localhost';
+use courses;
+create table courses (
   CRSE_ID int,
   ACAD_GROUP varchar(4),
   SUBJECT varchar(3),
@@ -19,4 +22,4 @@ create table COURSE (
   COURSE_TITLE_LONG text,
   COMPONENT_PRIMARY varchar(1),
   DESCRLONG text,
-)
+);
