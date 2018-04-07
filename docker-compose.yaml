@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql/mysql:5.7
+    container_name: "mysql"
+    restart: always
+    environment:
+      - MYSQL_DATABASE=courses
+      - MYSQL_USER=dev
+      - MYSQL_PASSWORD=voyager
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - sql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+volumes:
+  data:
