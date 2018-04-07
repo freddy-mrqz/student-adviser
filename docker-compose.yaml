@@ -2,17 +2,14 @@ version: '3.3'
 
 services:
   mysql:
-    image: mysql/mysql:5.7
-    container_name: "mysql"
-    restart: always
+    image: mysql
+    container_name: "db"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
-      - MYSQL_DATABASE=courses
       - MYSQL_USER=dev
       - MYSQL_PASSWORD=voyager
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - sql:/var/lib/mysql
+      - ./sql:/var/lib/mysql
     ports:
       - "3306:3306"
-volumes:
-  data:
