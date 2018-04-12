@@ -1,0 +1,22 @@
+version: '3'
+     
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: student_advisor
+    volumes:
+      - ./student_advisor:/home/docker/student_advisor
+    working_dir: /home/docker/student_advisor
+    ports:
+      - "8000:8000"
+  db:
+    image: postgres:9.4
+    container_name: postgresql
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+    pg_data:
