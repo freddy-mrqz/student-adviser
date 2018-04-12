@@ -4,7 +4,6 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
     container_name: student_advisor
     volumes:
       - ./student_advisor:/home/docker/student_advisor
